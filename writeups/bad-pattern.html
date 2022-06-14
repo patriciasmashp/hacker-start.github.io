@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Hacking Starts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/templatemo-style.css">
+    <link rel="stylesheet" href="/assets/css/owl.css">
+
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+<!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <div class="logo">
+                    <a href="/">Hacking Starts</a>
+                </div>
+            </header>
+
+            <div class="container">
+    <div class="col-md-12">
+        <h1>bad-patterns</h1>
+        <h4>автор: BaboonWithTheGoon</h4>
+    </div>
+</div>
+<div class="container post-container">
+    <div class="col-md-12">
+
+        <p>Таск нельзя отнести к мискалине, но и в криптографию не очень хочется закидывать, поэтому пускай там и остается. В двух словах про таск: Есть входная и выходная строка. Нужно понять какой алгоритм используется для шифрования.</p>
+
+<p>Задача выглядит так:</p>
+
+<p>A hacker was too lazy to do proper encryption. However, they left us some examples of how their encryption “algo” was supposed to work.</p>
+
+<p>original text :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." 
+</code></pre></div></div>
+<p>encoded:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Lpthq jrvym!frpos"vmt!cpit-"fsntgfxeuwu$aeksmsdkqk fnlx,!uhh eq#iivupsd!vhqppt#mndkgmdvpw$uu"oebpth$eu"gslpth$mbiqe bnluub0#Yt!gqmm!cg$mjplq wgqman.#uuju#rotvuyd!g{irdkwetjqq$umndqcp"oebptlw okvm vv#eljsxmp!g{$eb"fsmnqgs dqqwerwdx.!Fxms!cxxe!kuyrf"gslpt#mn!thtrfjhrdftlx jp#zomwsxaug#zemkw$etuh$cjnoym!frposg#iu!hxkibv#rumnd$pbtletvt1$Eyehttfwu$sjpw$odedicbv#guqkgetbv#roo"svojfhrt-"vynu"lr dwota!sxm phimcjc#hetguynu"pslmkw$aokp$ie"hwt!ndfoswp2"
+</code></pre></div></div>
+
+<p>Find the pattern!
+Maybe you should try the same pattern on this string:</p>
+
+<p>bagelarenotwholewheatsometimes
+Make sure you wrap your solution with dam{…}!</p>
+
+<h2 id="разведка">Разведка</h2>
+<p>Начнем с исследования строк. Сразу в глаза бросается, что хоть символы и разные, но в некоторых местах совпадают пробелы. Да и по длине они равны. Мне в голову пришло проверить шифр цезаря и другие возможные ROT (как-нибудь напишу статью о них) шифры. Ничего интересного, и похожего на нашу строку. Просто неосмысленные буквы.</p>
+
+<p><img src="/assets/images/ROT_Cyphers.png" alt="Результат шифрования через ROT" /></p>
+
+<p>Пристально смотрим на строку в течение часа и понимаем, насколько ответ очевиден. Каждый пятый символ совпадает в обеих строчках. А последующие символы смещаются на 1 символ по мере удаления от нулевого смещения. Переводя с псевдонаучного: каждая следующая буква передвигается на 1 символ по английскому алфавиту, пока количество смещенных букв не станет равно 5. Так, например, первая буква <strong>L</strong> имеет смещение 0, значит, остается собой. Следующая буква <strong>O</strong> переходит на 1 символ вправо (в англ. алфавите <strong>O</strong>, <strong>P</strong>, <strong>Q</strong>, <strong>R</strong>, <strong>S</strong>) и превращается в <strong>p</strong>, <strong>r</strong> в <strong>t</strong>, <strong>e</strong> в <strong>h</strong> и <strong>m</strong> в <strong>q</strong></p>
+
+<p><img src="/assets/images/fAFd414g.png" alt="Схема смещения" /></p>
+
+<p>На ноль приходится смещение равное нулю, поэтому пробел остается пробелом.
+Надеюсь объяснил, но все равно, вот код:</p>
+
+<h2 id="код">Код</h2>
+
+<pre><code class="python">keyw = r'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !"#$%&amp;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~ '
+
+inter = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+#inter = 'bagelarenotwholewheatsometimes'
+outer = 'Lpthq jrvym!frpos"vmt!cpit-"fsntgfxeuwu$aeksmsdkqk fnlx,!uhh eq#iivupsd!vhqppt#mndkgmdvpw$uu"oebpth$eu"gslpth$mbiqe bnluub0#Yt!gqmm!cg$mjplq wgqman.#uuju#rotvuyd!g{irdkwetjqq$umndqcp"oebptlw okvm vv#eljsxmp!g{$eb"fsmnqgs dqqwerwdx.!Fxms!cxxe!kuyrf"gslpt#mn!thtrfjhrdftlx jp#zomwsxaug#zemkw$etuh$cjnoym!frposg#iu!hxkibv#rumnd$pbtletvt1$Eyehttfwu$sjpw$odedicbv#guqkgetbv#roo"svojfhrt-"vynu"lr dwota!sxm phimcjc#hetguynu"pslmkw$aokp$ie"hwt!ndfoswp2'
+res = ''
+
+offset = 0
+for index in range(0,len(inter)):
+    letter = inter[index]
+    if index % 5==0:
+        offset=0
+    index_in_keyw = keyw.index(letter)
+    letter_with_offset = keyw[index_in_keyw+offset]
+    res+=letter_with_offset
+    offset+=1
+print('\n')
+print(res)
+print('\n')</code>
+</pre>
+
+<p>Дальше все просто. Берем строку “bagelarenotwholewheatsometime” и прогоняем через полученный алгоритм. Это и будет флаг.</p>
+
+<h4 id="dambbihpasgqstxjrpexjhettqpitjohw">dam{bbihpasgqstxjrpexjhettqpitjohw}</h4>
+
+    </div>
+  
+</div>
+
+          </div>
+        </div>
+
+      <!-- Sidebar --><div id="sidebar" class="inactive">
+
+    <div class="inner">
+
+        <!-- Search Box -->
+        <section id="search" class="alt">
+            <form method="get" action="#">
+                <div class="row">
+                    <input type="text" name="search" id="search-input" class="col-md-8" placeholder="Поиск..." />
+                    <div class="search-btton col-md-4" id="search-button">
+                      <a onclick="indexSearch()"><i class="fa fa-search"></i></a>  
+                    </div>
+                </div>
+                
+                <div class="search-results-container">
+                    <ul id="search-results" class="" style="color: red;"> </ul>
+                </div>
+                
+            </form>
+        </section>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul>
+                
+                <li><a href="/articles">Статьи</a></li>
+                
+                <li><a href="/writeups">Врайтапы</a></li>
+                
+                <li><a href="/info">Полезная информация</a></li>
+                
+                <li><a href="/about">Об авторе</a></li>
+                
+            </ul>
+        </nav>
+
+        <!-- Featured Posts -->
+        <div class="featured-posts">
+            <div class="heading">
+                <h2>Недавние посты</h2>
+            </div>
+            <div class="owl-carousel owl-theme">
+                
+                <a href="/books/reputation-1">
+                    <div class="featured-item">
+                        <img src="/assets/images/reputation/789de6cf25f7fc8934069bc9aa60abec578623a07772ff708ecce642f1cc4ff0.jpg" alt="">
+                        <p><p>Мозг человека это самая энерго затратная структура. По этой причине если есть возможность не задействовать мозг на полную мощность (не анализировать), то человек не осознанно идет именно по этому пути.</p>
+</p>
+                    </div>
+                </a>
+                
+                <a href="/books/reputation">
+                    <div class="featured-item">
+                        <img src="/assets/images/osint-1.svg" alt="">
+                        <p><p>Решил начать качаться в сторону осинта. Нашел тематические каналы в телеграме и для начала взял почитать книгу Нежданова И.Ю. “Управление репутацией”.</p>
+</p>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright">Copyright &copy; Все, что написано в этом блоге является cугубо точкой зрения автора.
+            </p>
+        </footer>
+
+    </div>
+</div></div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/transition.js"></script>
+    <script src="/assets/js/owl-carousel.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/simple-jekyll-search.min.js"></script>
+    <script src="/assets/js/search.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+</body>
+
+
+  </body>
+
+</html>
