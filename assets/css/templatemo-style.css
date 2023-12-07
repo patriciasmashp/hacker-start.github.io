@@ -98,11 +98,14 @@ section {
     -webkit-flex-shrink: 1;
     -ms-flex-shrink: 1;
     flex-shrink: 1;
-    width: 100%;
+    width: 70%;
+
 }
 
 #main > .inner {
     padding: 100px;
+    padding-bottom: 0;
+    /* padding-left: 0; */
 }
 
 /* Banner */
@@ -1407,14 +1410,30 @@ section.buttons .container-fluid {
     position: relative;
     background-color: #357e44;
     margin: -100px -100px 100px -100px;
+    justify-content: flex-end;
+}
+
+#header .telegram{
+    font-size: 18px;
+    padding-bottom: 0;
+    margin-right: 11px;
+    display: flex;
+    align-items: center;
+}
+
+#header .telegram i{
+    font-size: 25px;
+    color: black;
+    
 }
 
 #header .logo {
     text-align: right;
-    display: inline-block;	
+    display: flex;	
     width: 100%;
     height: 100px;
     line-height: 100px;
+    justify-content: flex-end;
 }
 #header .logo a {
 	font-size: 36px;
@@ -1557,4 +1576,49 @@ section.buttons .container-fluid {
     border-top: 0;
     margin-top: 0;
     padding-top: 0;
+}
+
+.owl-carousel .patent{
+    height: 40%;
+    width: 40% !important;
+}
+.diploma-container{
+    margin-top: 3em;
+}
+.diploma-container .owl-dots{
+    position: initial;
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+.skill-table{
+    margin-top: 5%;
+}
+
+.skill-table .skills-element{
+    transition: 0.3s;
+    padding: 1em;
+    font-size: 45px;
+}
+
+.skill-table .skills-element:hover{
+    background-color:#357e44;
+    transform: scale(1.1);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    border-radius: 3px;
+}
+
+.skill-table .skills-element:hover i{
+    color: white;
+    transition: 0.3s;
+}
+#pepega{
+    position: fixed;
+    width: 10%;
+    z-index: 1;
+    bottom: 0;
+    cursor: pointer;
+    transition: 1s;
 }

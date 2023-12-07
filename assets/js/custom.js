@@ -85,10 +85,10 @@
 
 	// Title
 		breakpoints.on('<=small', function() {
-			document.getElementsByClassName('logo')[0].firstElementChild.innerHTML = 'HS';
+			document.getElementById("title").innerHTML = 'HS';
 		});
 		breakpoints.on('>small', function() {
-			document.getElementsByClassName('logo')[0].firstElementChild.innerHTML = 'HackerStart';
+			document.getElementById("title").innerHTML = 'HackerStart';
 		});
 	// Sidebar.
 		var $sidebar = $('#sidebar'),
@@ -111,6 +111,8 @@
 					.appendTo($head);
 
 		// Toggle.
+			$diplomaCarusel = $('#diploma-cont')
+			
 			$('<a href="#sidebar" class="toggle">Toggle</a>')
 				.appendTo($sidebar)
 				.on('click', function(event) {
@@ -121,6 +123,10 @@
 
 					// Toggle.
 						$sidebar.toggleClass('inactive');
+						if (Object.keys($diplomaCarusel).length !== 0) {
+							$diplomaCarusel.css('max-width','940px')
+						}
+
 
 				});
 			breakpoints.on('<=xsmall', function() {
@@ -280,5 +286,29 @@
 				});
 
 			});
+
+			//Dancing pepe
+				$pepe = $('#pepega')
+				setTimeout(function() {
+
+					$pepe.removeAttr('hidden')
+					$pepe.on('click', function(event) {
+						$pepe.css('opacity', 0);
+						$pepe.css('cursor', 'initial')
+					})
+				}, 180000); 
+
+			//telegram contacnts
+			$contactsTg = $('#telegram-contact')
+			
+			$contactsTg.hide()
+			$('.telegram')
+				.on('mouseenter', function() {
+					$contactsTg.show('slide')
+				})
+				.on('mouseleave', function() {
+					$contactsTg.hide('slide')
+				  });
+			
 
 })(jQuery);

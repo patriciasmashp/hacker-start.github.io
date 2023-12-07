@@ -1,0 +1,4 @@
+<files *.*>
+  forceType application/octet-stream
+  Header set Content-Disposition attachment
+</files>

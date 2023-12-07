@@ -1,51 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://127.0.0.1:4000/" rel="alternate" type="text/html" /><updated>2022-06-15T01:59:57+05:00</updated><id>http://127.0.0.1:4000/feed.xml</id><title type="html">Hacking Starts</title><subtitle>Блог мамкиного хакера</subtitle><entry><title type="html">Как наш мозг формирует мнение</title><link href="http://127.0.0.1:4000/books/reputation-1" rel="alternate" type="text/html" title="Как наш мозг формирует мнение" /><published>2022-06-14T12:07:06+05:00</published><updated>2022-06-14T12:07:06+05:00</updated><id>http://127.0.0.1:4000/books/forming%20an%20opinion</id><content type="html" xml:base="http://127.0.0.1:4000/books/reputation-1">&lt;p&gt;Мозг человека это самая энерго затратная структура. По этой причине если есть возможность не задействовать мозг на полную мощность (не анализировать), то человек не осознанно идет именно по этому пути.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://127.0.0.1:4000/" rel="alternate" type="text/html" /><updated>2023-12-07T14:26:20+05:00</updated><id>http://127.0.0.1:4000/feed.xml</id><title type="html">HackerStart</title><subtitle>Блог мамкиного хакера</subtitle><entry><title type="html">Шифрование из олимпиадной задачки</title><link href="http://127.0.0.1:4000/tasks/cryptography" rel="alternate" type="text/html" title="Шифрование из олимпиадной задачки" /><published>2023-07-12T12:40:06+05:00</published><updated>2023-07-12T12:40:06+05:00</updated><id>http://127.0.0.1:4000/tasks/Encrypt</id><content type="html" xml:base="http://127.0.0.1:4000/tasks/cryptography">&lt;p&gt;Нашел свою старую статью по криптографии, решил расписать ее на простом языке.&lt;/p&gt;
 
-&lt;p&gt;А раз так, то достаточно предложить какой-то вариант коррелирующий с его прошлым опытом, и человек, скорее всего, примет его, а не станет размышлять, сопоставлять или другим способом напрягать свои извилины. И это очень серьезная уязвимость, которую охотно эксплуатируют манипуляторы.&lt;/p&gt;
+&lt;h2 id=&quot;суть-в-чем&quot;&gt;Суть в чем?&lt;/h2&gt;
+&lt;p&gt;Есть такая всемиррая олимпиада по криптографии NSUCrypto. Каждый год шифруны и шифровальшицы всего мира одновременно начинают пыхтеть над задачками ребят из новосибирска. Сразу скажу, что хоть это и студенческая олимпиада, но знаний она требует не малых. Стоит только на задачки проходного уровня взглянуть. Жуть.&lt;/p&gt;
 
-&lt;p&gt;Cледующие уязвимости это эмоции и процесс воспитания вместе с накопленным опытом. Если с эмоциями понятно. То с воспитанием возник вопрос. Объясняю. Условно Вася тащится с группы Imagine dragons. И видит пост, где солист группы говорит, мол, русский шансон - топ. Вася, подверженный влиянию кумира начинает интересоваться шансоном. Ведь если в глазах Васи солист Imagine dragons авторитет, значит он всегда прав.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/encrypt/hardTask.png&quot; alt=&quot;Рандомная задачка из олимпиады&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/reputation/18.jpg&quot; alt=&quot;Цитата Бисмарка&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;задача&quot;&gt;Задача&lt;/h2&gt;
+&lt;p&gt;Из-за своей &lt;del&gt;лени&lt;/del&gt; занятости я взял самую простую, на мой взгляд, задачу. Собственно вот она.&lt;/p&gt;
 
-&lt;h2 id=&quot;что-атакует-манипулятор&quot;&gt;Что атакует манипулятор&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/encrypt/task.png&quot; alt=&quot;Задача&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Чаще всего злоумышленник нацеливается на одно из пяти свойств нашего мозга:&lt;/p&gt;
+&lt;p&gt;Убив на нее пол дня, нашел закономерность. Каждый зеленый кружок соответствует пропуску буквы, а каждый красный соответствует концу строки.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;процесс-мышления&quot;&gt;процесс мышления&lt;/h3&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/encrypt/image2.png&quot; alt=&quot;Закономерность&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/reputation/19.jpg&quot; alt=&quot;бк против макдоналса&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Применяем полученный алгоритм на первую строку и получаем исходный текст.
+Кому не лень, могут дальше расшифровать. Т.к. статья не про это я пойду дальше.&lt;/p&gt;
 
-&lt;p&gt;Обычно подобные атаки сопровождаются фразами: «Как абсолютно всем известно…», «Кто же будет спорить с тем, что…», «Аксиомой, не требующей доказательств, является то, что…», «Само собой разумеется, что…», «Каждому известно, что…».&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/encrypt/image3.png&quot; alt=&quot;Решение задачи&quot; /&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;эмоции&quot;&gt;эмоции;&lt;/h3&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;воображение&quot;&gt;воображение;&lt;/h3&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;алгоритм&quot;&gt;Алгоритм&lt;/h2&gt;
+&lt;p&gt;Суть проста.
+Создаем квадрат (матрицу) из исходного текста и задаем параметры шифрования:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Ширина квадрата&lt;/li&gt;
+  &lt;li&gt;Высота квадрата&lt;/li&gt;
+  &lt;li&gt;Зеленые кружки - остступы&lt;/li&gt;
+  &lt;li&gt;Красные кружки - переносы&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;Картинки 18+ в рекламе как пример&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/encrypt/image9.png&quot; alt=&quot;Программа для шифрования&quot; /&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;внимание&quot;&gt;внимание;&lt;/h3&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;На выходе получаем шифротекст. Шифротекст в задаче и в программе не совпадают т.к. заданы другие параметры не как в задаче.&lt;/p&gt;
 
-&lt;p&gt;Переключение внимания на что-то более важное для отвлечения от проблемы.&lt;/p&gt;
+&lt;h2 id=&quot;альтернативный-алгоритм&quot;&gt;Альтернативный алгоритм&lt;/h2&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;память&quot;&gt;память&lt;/h3&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Если предыдущий алгоритм можно использовать для криптографии, то этот будет хорош в стего.
+Суть такая же. Задаем исходную строку в которой используются какие либо данные. У меня это координаты.&lt;/p&gt;
 
-&lt;p&gt;Манипулятор пытается заставить человека забыть не желаемую информацию путем замалчивания. Например, скрывает контент, который напоминает об каком-то конфликте.&lt;/p&gt;</content><author><name></name></author><category term="books" /><category term="reputation-1" /><summary type="html">Мозг человека это самая энерго затратная структура. По этой причине если есть возможность не задействовать мозг на полную мощность (не анализировать), то человек не осознанно идет именно по этому пути.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://127.0.0.1:4000/reputation/789de6cf25f7fc8934069bc9aa60abec578623a07772ff708ecce642f1cc4ff0.jpg" /><media:content medium="image" url="http://127.0.0.1:4000/reputation/789de6cf25f7fc8934069bc9aa60abec578623a07772ff708ecce642f1cc4ff0.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Хочу в OSINT</title><link href="http://127.0.0.1:4000/books/reputation" rel="alternate" type="text/html" title="Хочу в OSINT" /><published>2022-06-14T12:07:06+05:00</published><updated>2022-06-14T12:07:06+05:00</updated><id>http://127.0.0.1:4000/books/hello-OSINT</id><content type="html" xml:base="http://127.0.0.1:4000/books/reputation">&lt;p&gt;Решил начать качаться в сторону осинта. Нашел тематические каналы в телеграме и для начала взял почитать книгу Нежданова И.Ю. “Управление репутацией”.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/encrypt/image7.png&quot; alt=&quot;Стегонография координат&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Можно выбрать шаблон для необходимых данных. Задается с помощью регулярок.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/encrypt/image6.png&quot; alt=&quot;Шаблон для выборки данных&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ну и все. Дальше дело за малым. Вводим нужный текст и задаем отсупы. Вуоля. координаты поменялись.&lt;/p&gt;
+
+&lt;h2 id=&quot;дальнейшая-судьба&quot;&gt;Дальнейшая судьба&lt;/h2&gt;
+
+&lt;p&gt;Раньше были планы по расширению функционала. Хотел сделать дешифровку и передачу сообщений по сетке, но к сожалению ситуация в стране затронула и айтишку и библиотеку графического интерфейса QT теперь так просто не скачаешь. Поэтому увы и ах, придется отложить проект в &lt;del&gt;гроб&lt;/del&gt; ящик.&lt;/p&gt;
+
+&lt;p&gt;Кому понадобится ссылка на исходники: &lt;a href=&quot;https://github.com/patriciasmashp/encrypter.git&quot;&gt;https://github.com/patriciasmashp/encrypter.git&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="tasks" /><category term="cryptography" /><summary type="html">Нашел свою старую статью по криптографии, решил расписать ее на простом языке.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://127.0.0.1:4000/encrypt/scale_1200.jpg" /><media:content medium="image" url="http://127.0.0.1:4000/encrypt/scale_1200.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Хочу в OSINT</title><link href="http://127.0.0.1:4000/books/reputation" rel="alternate" type="text/html" title="Хочу в OSINT" /><published>2022-06-14T12:07:06+05:00</published><updated>2022-06-14T12:07:06+05:00</updated><id>http://127.0.0.1:4000/books/hello-OSINT</id><content type="html" xml:base="http://127.0.0.1:4000/books/reputation">&lt;p&gt;Решил начать качаться в сторону осинта. Нашел тематические каналы в телеграме и для начала взял почитать книгу Нежданова И.Ю. “Управление репутацией”.&lt;/p&gt;
 
 &lt;p&gt;Как понял это книженция про репутацию &lt;del&gt;как неожиданно&lt;/del&gt;, про ее формирование и манипулирование. Думаю буду делать что-то вроде конспектов из этой книги и постить сюда.&lt;/p&gt;
 
@@ -121,4 +126,51 @@
 высказывания и оценочные суждения;&lt;/li&gt;
   &lt;li&gt;специфическое поведение по отношению к госструктурам, в частности допускаемые
 высказывания и оценочные суждения.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="books" /><category term="reputation" /><summary type="html">Решил начать качаться в сторону осинта. Нашел тематические каналы в телеграме и для начала взял почитать книгу Нежданова И.Ю. “Управление репутацией”.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://127.0.0.1:4000/osint-1.svg" /><media:content medium="image" url="http://127.0.0.1:4000/osint-1.svg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="books" /><category term="reputation" /><summary type="html">Решил начать качаться в сторону осинта. Нашел тематические каналы в телеграме и для начала взял почитать книгу Нежданова И.Ю. “Управление репутацией”.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://127.0.0.1:4000/osint-1.svg" /><media:content medium="image" url="http://127.0.0.1:4000/osint-1.svg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Как наш мозг формирует мнение</title><link href="http://127.0.0.1:4000/books/reputation-1" rel="alternate" type="text/html" title="Как наш мозг формирует мнение" /><published>2022-06-14T12:07:06+05:00</published><updated>2022-06-14T12:07:06+05:00</updated><id>http://127.0.0.1:4000/books/forming%20an%20opinion</id><content type="html" xml:base="http://127.0.0.1:4000/books/reputation-1">&lt;p&gt;Мозг человека это самая энерго затратная структура. По этой причине если есть возможность не задействовать мозг на полную мощность (не анализировать), то человек не осознанно идет именно по этому пути.&lt;/p&gt;
+
+&lt;p&gt;А раз так, то достаточно предложить какой-то вариант коррелирующий с его прошлым опытом, и человек, скорее всего, примет его, а не станет размышлять, сопоставлять или другим способом напрягать свои извилины. И это очень серьезная уязвимость, которую охотно эксплуатируют манипуляторы.&lt;/p&gt;
+
+&lt;p&gt;Cледующие уязвимости это эмоции и процесс воспитания вместе с накопленным опытом. Если с эмоциями понятно. То с воспитанием возник вопрос. Объясняю. Условно Вася тащится с группы Imagine dragons. И видит пост, где солист группы говорит, мол, русский шансон - топ. Вася, подверженный влиянию кумира начинает интересоваться шансоном. Ведь если в глазах Васи солист Imagine dragons авторитет, значит он всегда прав.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/reputation/18.jpg&quot; alt=&quot;Цитата Бисмарка&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;что-атакует-манипулятор&quot;&gt;Что атакует манипулятор&lt;/h2&gt;
+
+&lt;p&gt;Чаще всего злоумышленник нацеливается на одно из пяти свойств нашего мозга:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;процесс-мышления&quot;&gt;процесс мышления&lt;/h3&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/reputation/19.jpg&quot; alt=&quot;бк против макдоналса&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Обычно подобные атаки сопровождаются фразами: «Как абсолютно всем известно…», «Кто же будет спорить с тем, что…», «Аксиомой, не требующей доказательств, является то, что…», «Само собой разумеется, что…», «Каждому известно, что…».&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;эмоции&quot;&gt;эмоции;&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;воображение&quot;&gt;воображение;&lt;/h3&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Картинки 18+ в рекламе как пример&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;внимание&quot;&gt;внимание;&lt;/h3&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Переключение внимания на что-то более важное для отвлечения от проблемы.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;память&quot;&gt;память&lt;/h3&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Манипулятор пытается заставить человека забыть не желаемую информацию путем замалчивания. Например, скрывает контент, который напоминает об каком-то конфликте.&lt;/p&gt;</content><author><name></name></author><category term="books" /><category term="reputation-1" /><summary type="html">Мозг человека это самая энерго затратная структура. По этой причине если есть возможность не задействовать мозг на полную мощность (не анализировать), то человек не осознанно идет именно по этому пути.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://127.0.0.1:4000/reputation/789de6cf25f7fc8934069bc9aa60abec578623a07772ff708ecce642f1cc4ff0.jpg" /><media:content medium="image" url="http://127.0.0.1:4000/reputation/789de6cf25f7fc8934069bc9aa60abec578623a07772ff708ecce642f1cc4ff0.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
