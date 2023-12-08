@@ -1622,3 +1622,48 @@ section.buttons .container-fluid {
     cursor: pointer;
     transition: 1s;
 }
+
+.dropdown-title{
+    cursor: pointer;
+    background-color: #b2b2b24f;
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-left: 20px;
+    padding-right: 25px;
+    padding-top: 10px;
+    transition: 0.2s;
+}
+
+.dropdown-title h5{
+    transition: 0.2s;
+}
+
+.dropdown-title h5 i{
+    padding-right: 10px;
+}
+.dropdown-title:hover{
+    transition: 0.2s;
+    background-color: #357e44;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    border-radius: 3px;
+    color: white;
+}
+
+.dropdown-title:hover i{
+    font-size: 21px;
+    transition: 0.2s;
+}
+
+.dropdown-content{
+    display: none;
+}
+
+i.transform{
+    transform: rotate(180deg)
+}
+
+.sector{
+    margin: 10px 0px;
+}

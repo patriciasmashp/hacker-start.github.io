@@ -310,5 +310,15 @@
 					$contactsTg.hide('slide')
 				  });
 			
+			//dropdown
 
+			$(document).ready(function(){
+				$('.dropdown-title ').click(function(e){
+					section = e.target.closest('.dropdown-title')
+					$('#'+section.dataset.toggleId).toggle(500);
+					console.log(section)
+					$('.dropdown-title i.arrow').toggleClass('transform')
+					// $('#section_1').hide();    
+				});
+			});
 })(jQuery);
