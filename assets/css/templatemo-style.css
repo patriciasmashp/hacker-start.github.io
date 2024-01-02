@@ -1667,3 +1667,44 @@ i.transform{
 .sector{
     margin: 10px 0px;
 }
+
+.portfolio-container .project{
+    margin: 20px;
+    flex-wrap: nowrap;
+}
+
+.portfolio-container .project img{
+    height: 100%;
+    width: 45%;
+}
+
+.portfolio-container .project .project-info{
+    padding: 50px;
+}
+
+.portfolio-description-text img{
+    float: left;
+    margin-right: 40px;
+    width: 56%;
+}
+
+@media screen and (max-width: 1160px){
+    .portfolio-container .project .project-info{
+        padding: 10px;
+    }
+    .portfolio-container .project .project-info .title{
+        font-size: 12px;
+    }
+    .portfolio-container .project .project-info .desc{
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width: 770px){
+    .portfolio-container .project .project-info .desc{
+        display: none;
+    }
+    .portfolio-container .project .project-info .title{
+        font-size: 8px;
+    }
+}

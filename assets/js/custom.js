@@ -85,10 +85,10 @@
 
 	// Title
 		breakpoints.on('<=small', function() {
-			document.getElementById("title").innerHTML = 'HS';
+			document.getElementById("title").innerHTML = 'ITis';
 		});
 		breakpoints.on('>small', function() {
-			document.getElementById("title").innerHTML = 'HackerStart';
+			document.getElementById("title").innerHTML = 'IT is simple';
 		});
 	// Sidebar.
 		var $sidebar = $('#sidebar'),
