@@ -54,76 +54,61 @@
         <a id="title" href="/">IT is simple</a>
       </div>
     </header>
-    <h1>Портфолио</h1>
+    <div class="container">
 
-<div class="container portfolio-container">
-    
-    <a href="/portfolio/ak-stroy-new">
-        <div class="row border project">
-            <div class="img-cont">
-                <img src="/assets/images/portfolio/akstroy_new.png" alt="" class="img-fluid">
-            </div>
-            <div class="project-info">
-                <h4 class="title">Акстрой - академия строительства новый сайт</h4>
-                <p class="desc"></p>
-            </div>
-        </div>
-    </a>
-    
-    <a href="/portfolio/akstroy">
-        <div class="row border project">
-            <div class="img-cont">
-                <img src="/assets/images/portfolio/akstroy.png" alt="" class="img-fluid">
-            </div>
-            <div class="project-info">
-                <h4 class="title">Акстрой - академия строительства</h4>
-                <p class="desc">Доработка старого сайта для компании академия строительства</p>
-            </div>
-        </div>
-    </a>
-    
-    <a href="/portfolio/motodor">
-        <div class="row border project">
-            <div class="img-cont">
-                <img src="/assets/images/portfolio/motodor.png" alt="" class="img-fluid">
-            </div>
-            <div class="project-info">
-                <h4 class="title">Мотодор</h4>
-                <p class="desc"></p>
-            </div>
-        </div>
-    </a>
-    
-    <a href="/portfolio/raru">
-        <div class="row border project">
-            <div class="img-cont">
-                <img src="/assets/images/portfolio/rarurf.png" alt="" class="img-fluid">
-            </div>
-            <div class="project-info">
-                <h4 class="title">РАРУ.РФ</h4>
-                <p class="desc"></p>
-            </div>
-        </div>
-    </a>
-    
-    <a href="/portfolio/shprot">
-        <div class="row border project">
-            <div class="img-cont">
-                <img src="/assets/images/portfolio/shprot_bot.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="project-info">
-                <h4 class="title">веб интерфейс для тату бота</h4>
-                <p class="desc">Разработка веб интерфейса для телеграм бота @TattooHunter_bot.</p>
-            </div>
-        </div>
-    </a>
-    
+    <div class="portfolio-description-text row">
+        <div class="gellary col-md-6">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="patent rounded  d-block" src="/assets/images/portfolio/shprot_bot/1.png" alt="" srcset="">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="patent rounded  d-block" src="/assets/images/portfolio/shprot_bot/2.png" alt="" srcset="">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="patent rounded  d-block" src="/assets/images/portfolio/shprot_bot/3.png" alt="" srcset="">
+                  </div>
+                </div>
+                <button class="carousel-control-prev carusel-control-button" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </button>
+                <button class="carousel-control-next carusel-control-button" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </button>
+              </div>
+              
 
+
+        </div>
+
+        <div class="text col-md-6">
+            Telegram бот <a href="https://t.me/TattooHunter_bot">@TattooHunter_bot</a> предназначен для поиска тату мастеров
+            в своем городе.
+            Задача заключалась в создании веб интерфейса, в котором администратор может отвечать на жалобы клиентов,
+            письма разработчикам и поддерживать чат с пользователем в реальном времени. <br>
+            Веб интерфейс разработан на стеке:
+            <ul>
+                <li>Vue js</li>
+                <li>FastApi</li>
+                <li>PostgreSql</li>
+                <li>Nginx</li>
+            </ul>
+            <br>
+        </div>
+        
+
+
+    </div>
 </div>
 
-<style scoped>
-
-</style>
   </div>
 </div>
 
